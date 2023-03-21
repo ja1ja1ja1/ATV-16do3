@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Text, View, StyleSheet, FlatList,Image } from 'react-native';
+import { Text, View, StyleSheet, FlatList, Image } from 'react-native';
 import AppLoading from 'expo-app-loading';
 import {
   useFonts,
@@ -19,19 +19,16 @@ export default function App() {
         <Text style={styles.titulo}> Os Animais</Text>
         <FlatList
           data={arrayAnimal}
-          renderItem={({ item }) => 
-          ( <View >
+          renderItem={({ item }) => (
+            <View>
               <Text style={styles.subTitulo}>{item.Animal}</Text>
-              <Image style={styles.img}source={item.capa}/>
-              <Text style={styles.subTitulo}>Animal: </Text>
-              {item.Animal}{'\n'}
-              <Text style={styles.subTitulo}>Especie: </Text>
-              {item.Especie}{'\n'}
-              <Text style={styles.subTitulo}>Alimentacao: </Text>
-              {item.Alimentacao}{'\n'}
+              <Image style={styles.img} source={item.capa} />
+              <Text style={styles.subTitulo}>Animal:{item.Animal} </Text>
+              <Text style={styles.subTitulo}>Especie:{item.Especie} </Text>
+              <Text style={styles.subTitulo}>
+                Alimentacao:{item.Alimentacao}
+              </Text>
               <Text>____________________________________________________</Text>
-                                
-                
             </View>
           )}
         />
@@ -45,23 +42,23 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: '#ecf0f1',
     padding: 8,
-    alignItems: 'center'
+    alignItems: 'center',
   },
   titulo: {
     fontSize: 40,
     color: '#ff5a73',
     fontFamily: 'Lato_400Regular',
   },
-  img:{
+  img: {
     borderRadius: 30,
     width: 300,
     height: 300,
-    resizeMode:'center'
+    //resizeMode: 'center',
   },
-  subTitulo:{
-    fontSize:20,
-    fontWeight:'bold'
-  }
+  subTitulo: {
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
 });
 const arrayAnimal = [
   {
@@ -73,25 +70,26 @@ const arrayAnimal = [
   {
     Animal: 'Orca',
     Especie: 'cetáceo',
-    Alimentacao: 'peixes, lulas, focas, golfinhos e toninhas, pingüins, tartarugas-marinhas',
-    capa: require('./assets/orca.jpg')
+    Alimentacao:
+      'peixes, lulas, focas, golfinhos e toninhas, pingüins, tartarugas-marinhas',
+    capa: require('./assets/orca.jpg'),
   },
   {
     Animal: 'Lula Colossal',
     Especie: 'cefalópode',
     Alimentacao: 'peixes, moluscos, outros vertebrados',
-    capa:require('./assets/lula.jpg')
+    capa: require('./assets/lula.jpg'),
   },
   {
     Animal: 'Urubu',
     Especie: 'catartiforme',
     Alimentacao: 'Carniça, frutas',
-    capa:require('./assets/urubu.jpg')
+    capa: require('./assets/urubu.jpg'),
   },
   {
     Animal: 'Preguiça Gigate',
     Especie: ' Megatheriidae',
     Alimentacao: 'Ovo, Plantas, Carnes',
-    capa: require('./assets/preguica.jpg')
+    capa: require('./assets/preguica.jpg'),
   },
 ];
